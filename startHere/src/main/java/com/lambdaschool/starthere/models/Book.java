@@ -24,6 +24,7 @@ public class Book extends Auditable
             value = "Book Title",
             required = true,
             example = "Java For Dummies")
+    @Column
     private String booktitle;
 
     @ApiModelProperty(name = "ISBN",
@@ -36,6 +37,12 @@ public class Book extends Auditable
             value = "Copyright Date",
             example = "2017")
     private int copy;
+
+    @OneToMany(mappedBy = "book",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonIgnoreProperties("book")
+    private List<Wrote> authorWrote = new ArrayList<>();
 
     @ManyToMany
     @JsonIgnoreProperties(value = "books")

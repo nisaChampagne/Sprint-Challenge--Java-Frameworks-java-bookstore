@@ -10,14 +10,12 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
 @EnableWebMvc
 @EnableJpaAuditing
 @SpringBootApplication
 public class StartHereApplication
-{
+    {
     private static final Logger logger = LoggerFactory.getLogger(StartHereApplication.class);
     private static boolean stop = false;
 
@@ -47,4 +45,4 @@ public class StartHereApplication
         }
     }
 
-}
+    }

@@ -31,7 +31,7 @@ public class BooksServiceImpl implements BooksService
 
         @Transactional
         @Override
-        public Book updateBook(Book book, long id)
+        public Book update(Book book, long id)
         {
             Book currentB = booksrepo.findById(id).orElseThrow(EntityNotFoundException::new);
             if (book.getBooktitle() != null)

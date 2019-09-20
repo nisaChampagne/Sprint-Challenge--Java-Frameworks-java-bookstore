@@ -22,17 +22,18 @@ public class Author extends Auditable
         @GeneratedValue(strategy = GenerationType.AUTO)
         private long authorid;
 
-        @ApiModelProperty(name = "firstname",
+        @ApiModelProperty(name = "fname",
                 value = "Authors First Name",
                 required = true,
                 example = "Spongebob")
-        private String firstname;
+        @Column
+        private String fname;
 
-        @ApiModelProperty(name = "lastname",
+        @ApiModelProperty(name = "lname",
                 value = "Authors Last Name",
                 required = true,
                 example = "Squarepants")
-        private String lastname;
+        private String lname;
 
         @ManyToMany(mappedBy = "authors")
         @JsonIgnoreProperties(value = "authors")
@@ -44,9 +45,9 @@ public class Author extends Auditable
 
         //constructor
 
-        public Author(String firstname, String lastname, List<Book> books) {
-            this.firstname = firstname;
-            this.lastname = lastname;
+        public Author(String fname, String lname, List<Book> books) {
+            this.fname = fname;
+            this.lname = lname;
             this.books = books;
         }
 
@@ -62,20 +63,20 @@ public class Author extends Auditable
             this.authorid = authorid;
         }
 
-        public String getFirstname() {
-            return firstname;
+        public String getFname() {
+            return fname;
         }
 
-        public void setFirstname(String firstname) {
-            this.firstname = firstname;
+        public void setFname(String fname) {
+            this.fname = fname;
         }
 
-        public String getLastname() {
-            return lastname;
+        public String getLname() {
+            return lname;
         }
 
-        public void setLastname(String lastname) {
-            this.lastname = lastname;
+        public void setLname(String lname) {
+            this.lname = lname;
         }
 
         public List<Book> getBooks() {
